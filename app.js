@@ -17,5 +17,5 @@ app.get('/todos/sortednumbers', routes.sortednumbers);
 app.get('/todos/:id', routes.select);
 app.post('/todos/:id', routes.change);
 
-
-app.listen(3850);
+// process... so heroku can choose port
+app.listen(process.env.PORT || 3850);
