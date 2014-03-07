@@ -1,0 +1,92 @@
+<head>
+    <title>Exhibitors List</title>
+   <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans' rel='stylesheet' type='text/css'>
+     <link type="text/css" rel="stylesheet" href="./css/style.css"> 
+       
+</head>
+
+<body>
+    <div class="wrapper">
+        <form method='post' action='todos'>
+            <fieldset>
+                <legend>
+                    <h1>Exhibitors</h1>
+                </legend>
+
+                <input type='text' name='name' id='name' placeholder="Company/Organization">
+                <input type="text" name='boothnumber' id='boothnumber' placeholder="Number">
+                <button type='submit' value='add item' id='add'>Add</button>
+
+                <br/>
+
+                <div id="sort">
+                    <a href="/todos/sorted">A-Z</a>
+                </div>
+                
+                <div id="sortbooth">
+                    <a href="/todos/sortednumbers">Number</a>
+                </div>
+                
+                <div id="completed">
+                    <a href="/todos/removecompleted">Remove Selected</a>
+                </div>
+               
+                <div id="emptylist">
+                    <a href="/todos/removeall">Clear All</a>
+                </div>
+
+                    <ul>
+
+                    </ul>
+            </fieldset>
+                <!--
+            <div class="credit">
+                <img src="/images/WBF_vertical.png" width=100px height=100px>
+            </div>
+                    -->
+        </form>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+        
+        var clicked = function(){
+            var thisParent = $(this).parent();
+            if (thisParent.hasClass("done"))
+                markitemundone(thisParent);
+            else 
+                markitemdone(thisParent);
+            }
+        var markitemdone = function(thisItem){
+            thisItem.addClass("done");
+            $.post("todos/"+ thisItem.data("uuid"), {
+                "isDone":true})
+        }
+        
+        var markitemundone = function(thisItem){
+            thisItem.removeClass("done");
+            $.post("todos/"+ thisItem.data("uuid"), {
+                "isDone":false})
+        }
+        
+        $(function(){
+            $.getJSON("/todos", function(data){ 
+                for ( var i=0; i<data.length; i++){
+                    var item =data[i];
+                    var new_li_element= $("<li><input type='checkbox'/>"+item.name+', '+item.boothnumber+"</li>");
+                    new_li_element.data("uuid", item.id);
+                    $("ul").append(new_li_element);
+                    
+                    if (item.isDone=="true"){
+                        new_li_element.find("input:checkbox").attr("checked",true);
+                        new_li_element.addClass("done");}
+                } 
+                $(":checkbox").on("click",clicked);
+                //puts cursor back in company/org box
+                $( "#name" ).focus();
+                
+        
+        })})
+
+    </script>
+
+</body>

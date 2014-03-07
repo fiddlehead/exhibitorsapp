@@ -1,0 +1,142 @@
+/*
+#908e93 - grey
+#419ba0 - med blue
+#78653b - dark brown
+*/
+body {
+    background: #78653b;
+    font-size: 2em;
+}
+.wrapper {
+    width: 85%;
+    margin: 10px auto;
+}
+
+h1, li, label, button {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+h1 {
+    color: #78653b;
+    padding-left: 120px;
+}
+ul {
+    list-style-type: none;
+    word-break: break-all;
+    color: #78653b;
+}
+
+li {
+    margin: 10px auto;
+    text-indent: -50px;
+    font-size: .8em;
+    padding-bottom: 5px;
+}
+
+.done {
+    text-decoration: line-through;
+    color: #577a79;
+}
+
+input[type=checkbox] {
+    margin: 0 20px;
+    position: relative;
+    top: -5px;
+}
+
+input:focus { 
+    outline: none;
+}
+
+form {
+    margin: 50px auto 15px auto;
+    padding: 50px 20px;
+    width: 600px;
+    background: #fff;
+    position: relative;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: .8em;
+    line-height: 24px;
+    text-decoration: none;
+    border-radius: 2%;
+    box-shadow: 3px 3px 3px rgba(65, 155, 160, .3);
+}
+fieldset {
+    border: none;
+}
+
+#name {
+    margin-top: 50px;
+    margin-right: 0;
+    height: 65px;
+    width: 310px;
+    font-size: .8em;
+    border-color: #000;
+}
+
+#boothnumber {
+    margin-top: 50px;
+    margin-right: 0;
+    height: 65px;
+    width: 120px;
+    font-size: .8em;
+    border-color: #000;
+}
+label {
+    text-indent: -50px;
+    color: #908e93;
+    padding-top: 5px;
+    font-size: .8em;
+}
+button {
+    position: relative;
+    background: #419ba0;
+    display: inline-block;
+    height: 70px;
+    width: 100px;
+    border: none;
+    color: #fff;
+    font-size: .9em;
+}
+button:hover {
+    box-shadow: -1px -1px 1px rgba(65, 155, 160, .3);
+    top: 1px;
+    left: 1px;
+}
+#completed,
+#emptylist,
+#sort,
+#sortbooth {
+    display: inline-block;
+}
+#completed a,
+#emptylist a,
+#sort a,
+#sortbooth a {
+    margin-top: 20px;
+    font-size: .7em;
+    text-align: center;
+    font-weight: normal;
+    position: relative;
+    background: #419ba0;
+    border-radius: 10px;
+    color: #fff;
+    display: inline-block;
+    padding: 13px;
+    text-decoration: none;
+}
+
+#completed a {
+    width: 180px;
+}
+
+#sort a {
+    width: 75px;
+}
+
+#sortbooth a {
+    width: 100px;
+}
+
+img {
+    margin-left: 230px;
+}
