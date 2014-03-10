@@ -13,7 +13,7 @@ function find(id,array){
 function done(array){
     var newlist = [];
     for(var i=0; i<array.length; i++){
-        if(array[i].isDone==false)
+        if(array[i].isDone==false || array[i].isDone == "false")
             newlist.push(array[i]);
     }
     return newlist;
